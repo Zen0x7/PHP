@@ -1,13 +1,15 @@
 name: ci
 
 on:
+  schedule:
+  - cron: "0 0 * * *"
   push:
 
 jobs:
   docker:
     strategy:
       matrix:
-        version: [8.3]
+        version: [8.3, 8.4]
         variant: [debug, release]
     runs-on: ubuntu-latest
     steps:
